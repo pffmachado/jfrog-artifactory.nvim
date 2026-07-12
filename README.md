@@ -1,4 +1,4 @@
-# jfrog-artifacts.nvim
+# jfrog-artifactory.nvim
 
 Neovim plugin to browse JFrog Artifactory artifacts from a **project root** (for example `org/repo`) using:
 
@@ -19,9 +19,9 @@ Before search/download, the plugin checks that JFrog CLI is configured and reach
 
 ```lua
 {
-  "YOUR_GITHUB_USERNAME/jfrog-artifacts.nvim",
+  "YOUR_GITHUB_USERNAME/jfrog-artifactory.nvim",
   config = function()
-    require("jfrog_artifacts").setup()
+    require("jfrog_artifactory").setup()
   end,
 }
 ```
@@ -70,7 +70,7 @@ The content buffer includes a **Build Info** header (project, branch, path, file
 ## Configuration
 
 ```lua
-require("jfrog_artifacts").setup({
+require("jfrog_artifactory").setup({
   default_project = nil, -- e.g. "org/repo"
   infer_project_from_git = true, -- infer owner/repo from git remote or cwd path
   jfrog_command = { "jf", "rt", "s" },
@@ -92,13 +92,13 @@ require("jfrog_artifacts").setup({
 ## Repo structure
 
 ```
-jfrog-artifacts.nvim/
+jfrog-artifactory.nvim/
 ├── LICENSE
 ├── README.md
 ├── plugin/
-│   └── jfrog_artifacts.lua
+│   └── jfrog_artifactory.lua
 └── lua/
-    └── jfrog_artifacts/
+    └── jfrog_artifactory/
         ├── commands.lua
         ├── init.lua
         ├── jfrog.lua

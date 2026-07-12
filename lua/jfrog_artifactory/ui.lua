@@ -1,4 +1,4 @@
-local tree = require("jfrog_artifacts.tree")
+local tree = require("jfrog_artifactory.tree")
 
 local M = {}
 
@@ -170,18 +170,18 @@ local function configure_buffer(bufnr)
   vim.bo[bufnr].bufhidden = "wipe"
   vim.bo[bufnr].swapfile = false
   vim.bo[bufnr].modifiable = false
-  vim.bo[bufnr].filetype = "jfrog-artifacts"
+  vim.bo[bufnr].filetype = "jfrog-artifactory"
 end
 
 local function set_scratch_name(bufnr, title)
-  local clean = (title or "jfrog-artifacts")
+  local clean = (title or "jfrog-artifactory")
     :gsub("[/\\]", " > ")
     :gsub("[%c]", " ")
     :gsub("%s+", " ")
     :gsub("^%s+", "")
     :gsub("%s+$", "")
   local unique = tostring(vim.loop.hrtime())
-  local name = "jfrog-artifacts://" .. clean .. "#" .. unique
+  local name = "jfrog-artifactory://" .. clean .. "#" .. unique
   pcall(vim.api.nvim_buf_set_name, bufnr, name)
 end
 
@@ -357,7 +357,7 @@ function M.open_node_buffer(root_node, opts)
   configure_buffer(bufnr)
   set_scratch_name(bufnr, opts.title or ("JFrog: " .. (opts.path or root_node.name)))
 
-  local ns = vim.api.nvim_create_namespace("jfrog_artifacts_buffer")
+  local ns = vim.api.nvim_create_namespace("jfrog_artifactory_buffer")
   local expanded_meta = {}
   local line_entries = {}
 

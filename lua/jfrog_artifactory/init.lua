@@ -1,7 +1,7 @@
-local commands = require("jfrog_artifacts.commands")
-local jfrog = require("jfrog_artifacts.jfrog")
-local tree = require("jfrog_artifacts.tree")
-local ui = require("jfrog_artifacts.ui")
+local commands = require("jfrog_artifactory.commands")
+local jfrog = require("jfrog_artifactory.jfrog")
+local tree = require("jfrog_artifactory.tree")
+local ui = require("jfrog_artifactory.ui")
 
 local M = {
   opts = {
@@ -25,7 +25,7 @@ local M = {
 }
 
 local function notify(msg, level)
-  vim.notify(msg, level or vim.log.levels.INFO, { title = "jfrog-artifacts.nvim" })
+  vim.notify(msg, level or vim.log.levels.INFO, { title = "jfrog-artifactory.nvim" })
 end
 
 local function select_item(item, opts)
